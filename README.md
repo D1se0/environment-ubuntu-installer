@@ -3,7 +3,14 @@
 > **Ubuntu 25.10 convertido en un laboratorio de ethical hacking** — tiling con bspwm, kitty con estilo propio, polybar operativa, rendimiento afinado y cero telemetría.
 
 <p align="center">
-  <img src="assets/login-whitehatso.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/login.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/desktop.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/terminal.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/stats.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/options-system.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/search_apps.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/set_target.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/files.png" alt="Login whitehatSO" width="70%" />
 </p>
 
 ---
