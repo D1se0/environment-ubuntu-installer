@@ -107,6 +107,8 @@ install -m 644 "$WORK/system/etc/whitehatso-bspwm.desktop" /usr/share/xsessions/
 # wallpapers + login background
 mkdir -p /usr/share/backgrounds
 [ -d "$WORK/system/etc/whitehatso-wallpapers" ] && cp -r "$WORK/system/etc/whitehatso-wallpapers" /usr/share/backgrounds/whitehatso
+# ruta exacta que aplica bspwmrc (feh --bg-fill /usr/share/backgrounds/whitehatso/wallpaper.png)
+[ -f "$WORK/system/etc/whitehatso-wallpapers/wallpaper.png" ] && install -m 644 "$WORK/system/etc/whitehatso-wallpapers/wallpaper.png" /usr/share/backgrounds/whitehatso/wallpaper.png
 [ -f "$WORK/system/etc/whitehatso-login.png" ] && install -m 644 "$WORK/system/etc/whitehatso-login.png" /usr/share/backgrounds/whitehatso-login.png
 
 # ---------------------------------------------------------------------------
