@@ -329,6 +329,7 @@ function PromptAnatomy() {
     { sym: '◈', name: 'Logo Ubuntu', desc: 'Glifo Nerd Font en naranja Ubuntu (#e95420). Siempre visible.', color: 'text-whs-orange' },
     { sym: '☠', name: 'Calavera (root)', desc: 'Solo aparece como root (sudo -i / su -). Rojo whitehat #e0303c, glifo Unicode estándar ☠.', color: 'text-whs-red' },
     { sym: '│', name: 'Separador', desc: 'Barra gris que separa identidad y ruta.', color: 'text-[#3a3a3d]' },
+    { sym: 'diseo', name: 'Tu usuario', desc: 'Nombre del usuario actual, justo a la izquierda de la ruta. Gris claro como usuario normal; en rojo cuando eres root.', color: 'text-whs-grey' },
     { sym: '~', name: 'Ruta absoluta', desc: 'Siempre la ruta completa donde estás, sin abreviar.', color: 'text-whs-grey' },
     { sym: '✓', name: 'Estado del comando', desc: '✓ verde (#3fb850) si el anterior terminó bien · ✗ rojo si falló. Se actualiza en cada prompt.', color: 'text-whs-green' },
     { sym: '$', name: 'Símbolo', desc: '$ como usuario · # cuando eres root (acompañado de la calavera).', color: 'text-whs-red' }
@@ -369,10 +370,9 @@ function PromptAnatomy() {
         <Reveal delay={0.1}>
           <div className="space-y-4">
             <CopyBlock
-              label="ejemplo real en kitty"
-              text={` ◈ ☠  │ /etc ✓ #   ← root tras un fallo
- ◈    │ ~/labos/htb ✓ $  ← usuario, todo OK
- ◈    │ /var/www ✗ $     ← último comando fallido`}
+              label="ejemplo real en kitty"                text={` ◈ ☠  │ root /etc ✓ #   ← root tras un fallo
+ ◈    │ diseo ~/labos/htb ✓ $  ← usuario, todo OK
+ ◈    │ diseo /var/www ✗ $     ← último comando fallido`}
             />
             <div className="card">
               <div className="flex items-center gap-2.5 mb-3">
@@ -381,8 +381,8 @@ function PromptAnatomy() {
               </div>
               <p className="text-sm text-whs-grey leading-relaxed">
                 Cerrar ventanas pide siempre <b className="text-white">Si / No</b> con rofi flotante y centrado. Funciona en
-                kitty (mapeo interno), en sxhkd (system-wide) y hasta en terminales con protocolo kitty (ptyxis, ghostty)
-                vía binds de bash que interpretan la secuencia <code className="text-whs-red">9;9u</code>.
+                kitty (mapeo interno), en sxhkd (system-wide) y, como última red, en bash: si alguna terminal deja escapar la
+                tecla como secuencia <code className="text-whs-red">CSI-u</code>, los binds de bash la interpretan y lanzan el mismo diálogo.
               </p>
             </div>
           </div>
