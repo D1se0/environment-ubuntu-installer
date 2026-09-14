@@ -12,6 +12,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  administration: write  # necesario para actions/configure-pages enablement:true
 
 concurrency:
   group: pages
