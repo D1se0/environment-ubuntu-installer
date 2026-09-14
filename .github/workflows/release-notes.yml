@@ -1,0 +1,40 @@
+name: Sync release notes
+
+# Sincroniza docs/releases/vX.Y.Z.md -> cuerpo de la release del mismo tag.
+# Así las notas viven versionadas en el repo y GitHub las muestra en cada release.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/releases/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-notes
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publicar notas en cada release existente
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          for f in docs/releases/v*.md; do
+            tag="$(basename "$f" .md)"
+            echo ":: Syncing $tag"
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release edit "$tag" --repo "$GITHUB_REPOSITORY" --notes-file "$f"
+              echo "   -> notas de $tag actualizadas"
+            else
+              echo "   -> la release $tag no existe todavía (se creará al pushear el tag)"
+            fi
+          done
