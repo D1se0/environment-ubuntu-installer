@@ -6,9 +6,13 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: #0b0b0e;
+}
+
 ::selection {
   background: #e0303c;
-  color: #0d0d0d;
+  color: #0b0b0e;
 }
 
 ::-webkit-scrollbar {
@@ -16,10 +20,10 @@ html {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d0d10;
+  background: #0b0b0e;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a30;
+  background: #232329;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -28,12 +32,30 @@ html {
 
 @layer components {
   .section-tag {
-    @apply text-xs tracking-[0.3em] uppercase text-whs-red/80;
+    @apply text-xs tracking-[0.3em] uppercase text-whs-red/90 font-mono;
   }
   .card {
-    @apply bg-panel border border-edge rounded-lg p-6 transition-colors hover:border-whs-red/50;
+    @apply bg-panel/80 border border-edge rounded-xl p-6 backdrop-blur-sm transition-all duration-300;
+  }
+  .card:hover {
+    @apply border-whs-red/50 shadow-glow-red;
   }
   .kbd {
-    @apply inline-block px-2 py-0.5 mx-0.5 rounded border border-edge bg-black/40 text-xs text-whs-ink;
+    @apply inline-block min-w-[1.9rem] text-center px-2 py-1 mx-0.5 rounded-md border border-edge bg-[#1a1a20] text-xs text-whs-ink font-mono shadow-[0_2px_0_0_#0b0b0e];
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(224, 48, 60, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(224, 48, 60, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .text-glow-red {
+    text-shadow: 0 0 18px rgba(224, 48, 60, 0.55);
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-whs-ink to-whs-red;
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-edge bg-panel/70 text-xs text-whs-grey backdrop-blur-sm;
   }
 }
