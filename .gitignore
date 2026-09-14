@@ -1,0 +1,6 @@
+node_modules/
+website/dist/
+website/node_modules/
+*.log
+.DS_Store
+__pycache__/

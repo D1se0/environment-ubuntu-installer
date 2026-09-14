@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=whitehatSO (bspwm)
+Comment=Entorno bspwm curado de whitehatSO
+Exec=/usr/local/bin/whitehatso-session
+Type=Application
+DesktopNames=bspwm

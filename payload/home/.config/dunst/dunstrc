@@ -1,0 +1,30 @@
+[global]
+font = JetBrainsMono Nerd Font 10
+width = 320
+height = 100
+origin = top-right
+offset = 12x40
+frame_width = 2
+frame_color = "#e0303c"
+corner_radius = 8
+separator_color = frame
+icon_theme = Papirus-Dark
+padding = 12
+horizontal_padding = 12
+
+[urgency_low]
+background = "#0d0d0d"
+foreground = "#cfcfcf"
+timeout = 4
+
+[urgency_normal]
+background = "#0d0d0d"
+foreground = "#cfcfcf"
+frame_color = "#e0303c"
+timeout = 6
+
+[urgency_critical]
+background = "#0d0d0d"
+foreground = "#ff3b3b"
+frame_color = "#ff3b3b"
+timeout = 0

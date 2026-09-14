@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x picom > /dev/null || picom --config $HOME/.config/picom/picom.conf &
+pgrep -x dunst > /dev/null || dunst &
+nm-applet &
+pgrep -x xss-lock > /dev/null || xss-lock --transfer-sleep-lock -- /usr/local/bin/whitehatso-lock &
+feh --bg-fill /usr/share/backgrounds/whitehatso/wallpaper.png 2>/dev/null &
+$HOME/.config/polybar/launch.sh &
+
+bspc monitor -d I II III IV V
+
+bspc config border_width         2
+bspc config window_gap           10
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focused_border_color "#e0303c"
+bspc config normal_border_color  "#3a3a3d"
+
+# arrastrar/redimensionar ventanas con super + botón del ratón (nativo de bspwm)
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a firefox desktop='^2'
+bspc rule -a kitty state=tiled
+bspc rule -a "install4j-burp-StartBurp" state=floating rectangle=1400x900+60+40
+bspc rule -a org.gnome.Nautilus state=floating rectangle=1000x650+120+90
+
+# diálogos y launcher rofi flotantes
+bspc rule -a Rofi state=floating
+
+# VMware: autofit daemon (follows host window size via RandR)
+pgrep -f vmware-user >/dev/null 2>&1 || { command -v vmware-user-suid-wrapper >/dev/null 2>&1 && vmware-user-suid-wrapper >/dev/null 2>&1 & }

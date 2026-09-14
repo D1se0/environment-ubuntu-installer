@@ -1,0 +1,46 @@
+name: Build installer on release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Construir instalador autocontenido
+        run: bash build-installer.sh
+
+      - name: Smoke test (sintaxis + payload válido)
+        run: |
+          bash -n install-whitehatso.sh
+          # extrae el payload embebido y comprueba que el tar es válido
+          python3 - <<'PY'
+          import re, base64, tarfile, io
+          src = open('install-whitehatso.sh').read()
+          m = re.search(r'PAYLOAD_B64="([^"]+)"', src)
+          assert m and '__WHS_PAYLOAD_B64__' not in m.group(1), 'payload no incrustado'
+          raw = base64.b64decode(m.group(1))
+          tarfile.open(fileobj=io.BytesIO(raw), mode='r:gz').getnames()
+          print('payload OK:', len(raw), 'bytes')
+          PY
+
+      - name: Subir artefacto del instalador
+        uses: actions/upload-artifact@v4
+        with:
+          name: install-whitehatso.sh
+          path: install-whitehatso.sh
+
+      - name: Adjuntar a la release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: install-whitehatso.sh
+          generate_release_notes: true

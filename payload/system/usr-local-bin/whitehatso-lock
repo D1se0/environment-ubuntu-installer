@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+IMG="/tmp/whitehatso-lock-$$.png"
+scrot -o "$IMG" 2>/dev/null
+[[ -f "$IMG" ]] && convert "$IMG" -blur 0x8 -fill black -colorize 35% "$IMG"
+
+if [[ -x /usr/local/bin/i3lock ]] && /usr/local/bin/i3lock --version 2>&1 | grep -qi 'Raymond Li'; then
+  /usr/local/bin/i3lock ${IMG:+-i "$IMG"} -e -f \
+    --inside-color=00000000 --ring-color=e0303cff --line-color=00000000 \
+    --keyhl-color=e0303cff --bshl-color=ff3b3bff \
+    --separator-color=3a3a3dff \
+    --insidever-color=00000000 --ringver-color=e0303cff \
+    --insidewrong-color=00000000 --ringwrong-color=ff3b3bff \
+    --verif-color=e0303cff --wrong-color=ff3b3bff \
+    --time-color=cfcfcfff --date-color=9a9a9aff \
+    --time-str="%H:%M:%S" --date-str="%A, %d %B %Y" \
+    --clock --indicator
+else
+  /usr/bin/i3lock ${IMG:+-i "$IMG"} -c 0d0d0d
+fi
+rm -f "$IMG"

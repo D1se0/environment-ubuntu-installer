@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# whs-bettercap — arranca/para bettercap + tor en caliente
+case "${1:-}" in
+  on)  sudo systemctl start bettercap.service tor.service 2>/dev/null && echo "[whitehatSO] bettercap + tor ON" ;;
+  off) sudo systemctl stop bettercap.service tor.service 2>/dev/null && echo "[whitehatSO] bettercap + tor OFF" ;;
+  *)   echo "uso: whs-bettercap on|off" ;;
+esac

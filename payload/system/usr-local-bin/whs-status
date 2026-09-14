@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+echo "=== whitehatSO status ==="
+free -h | head -2 | tail -1
+df -h / | tail -1 | awk '{print "disco: "$3" de "$2" ("$5")"}'
+echo "zram: $(zramctl --output DISKSIZE --noheadings 2>/dev/null | head -1)"
+echo "tor: $(systemctl is-active tor 2>/dev/null) | bettercap: $(systemctl is-active bettercap 2>/dev/null)"
+echo "snapd: $(systemctl is-active snapd 2>/dev/null)"

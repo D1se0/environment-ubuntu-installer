@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+echo "whitehatSO - comandos propios"
+echo "  whs-bettercap on|off   bettercap+tor solo cuando los necesites"
+echo "  whs-close              cerrar ventana enfocada (equivale a Ctrl+W)"
+echo "  whs-lock               bloquear pantalla"
+echo "  whs-status             resumen del sistema"

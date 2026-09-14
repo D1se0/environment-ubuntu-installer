@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# whitehatso-close — cierra la ventana enfocada pidiendo confirmación Si/No.
+# bspwm no publica _NET_ACTIVE_WINDOW de forma fiable: se usa la consulta nativa.
+set -u
+
+# si ya hay un rofi abierto, no apilar otro dialogo
+pgrep -x rofi >/dev/null 2>&1 && exit 0
+
+# Autodetección del socket de bspwm si el entorno no lo trae
+if [[ -z "${BSPWM_SOCKET:-}" ]]; then
+  s=$(ls -t /tmp/bspwm*_0-socket 2>/dev/null | head -n1)
+  [[ -n "${s:-}" ]] && export BSPWM_SOCKET="$s"
+fi
+
+wid=$(bspc query -N -n focused 2>/dev/null)
+[[ -z "$wid" ]] && exit 0
+
+class=$(xprop -id "$wid" WM_CLASS 2>/dev/null | sed -n 's/.*"\(.*\)", "\(.*\)"/\2/p')
+app=${class:-esta\ ventana}
+app=${app##*.}                    # org.gnome.Nautilus -> Nautilus
+[[ -z "$app" ]] && app="esta ventana"
+
+choice=$(printf 'Si\nNo' | rofi -normal-window -dmenu -theme-str 'window { width: 22%; }' -p "¿Cerrar ${app}?")
+
+if [[ "$choice" == "Si" ]]; then
+  bspc node "$wid" -c
+else
+  bspc node "$wid" -f             # sin cierre: devolver el foco a la ventana
+fi

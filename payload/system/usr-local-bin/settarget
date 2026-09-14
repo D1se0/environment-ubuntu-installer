@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# settarget X.X.X.X   -> asigna la IP de atacante mostrada en polybar (ATK)
+# settarget            -> la borra (vuelve a "--")
+FILE="$HOME/.config/whitehatso/attacker_ip"
+mkdir -p "$(dirname "$FILE")"
+if [[ -z "$1" ]]; then
+  rm -f "$FILE"
+  echo "whitehatSO: IP de atacante borrada"
+else
+  echo "$1" > "$FILE"
+  echo "whitehatSO: IP de atacante -> $1"
+fi

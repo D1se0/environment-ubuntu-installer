@@ -1,0 +1,22 @@
+{
+  "logo": { "type": "file", "source": "~/.config/fastfetch/logo.txt", "padding": { "top": 1, "right": 3 } },
+  "display": { "separator": "  " },
+  "modules": [
+    { "module": "title", "key": "  󰌾 ", "keyColor": "#e0303c", "format": "{user-name}@{host-name}" },
+    "break",
+    { "module": "os",   "key": "  󰣇 OS",   "keyColor": "#e0303c" },
+    { "module": "kernel","key": "  󰒋 Kernel","keyColor": "#3a3a3d" },
+    { "module": "wm",   "key": "  󰆹 WM",   "keyColor": "#e0303c" },
+    { "module": "shell","key": "  󱆃 Shell","keyColor": "#3a3a3d" },
+    { "module": "terminal","key": "  󰄛 Term","keyColor": "#e0303c" },
+    "break",
+    { "module": "cpu",   "key": "  󰻠 CPU",  "keyColor": "#e0303c" },
+    { "module": "memory","key": "  󰍛 RAM", "keyColor": "#3a3a3d" },
+    { "module": "swap",  "key": "  󰓡 Swap","keyColor": "#e0303c" },
+    { "module": "disk",  "key": "  󰋊 Disk", "keyColor": "#3a3a3d" },
+    { "module": "uptime","key": "  󰅐 Up",  "keyColor": "#e0303c" },
+    { "module": "localip","key": "  󰩟 IP", "keyColor": "#3a3a3d" },
+    "break",
+    { "module": "colors", "paddingLeft": 2 }
+  ]
+}
