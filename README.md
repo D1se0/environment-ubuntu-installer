@@ -3,14 +3,14 @@
 > **Ubuntu 25.10 convertido en un laboratorio de ethical hacking** — tiling con bspwm, kitty con estilo propio, polybar operativa, rendimiento afinado y cero telemetría.
 
 <p align="center">
-  <img src="assets/login.png" alt="Login whitehatSO" width="70%" />
-  <img src="assets/desktop.png" alt="Login whitehatSO" width="70%" />
-  <img src="assets/terminal.png" alt="Login whitehatSO" width="70%" />
-  <img src="assets/stats.png" alt="Login whitehatSO" width="70%" />
-  <img src="assets/options-system.png" alt="Login whitehatSO" width="70%" />
-  <img src="assets/search_apps.png" alt="Login whitehatSO" width="70%" />
-  <img src="assets/set_target.png" alt="Login whitehatSO" width="70%" />
-  <img src="assets/files.png" alt="Login whitehatSO" width="70%" />
+  <img src="assets/wallpapers/wallpaper.png" alt="Wallpaper whitehatSO" width="70%" />
+  <img src="assets/desktop.png" alt="Escritorio whitehatSO" width="70%" />
+  <img src="assets/terminal.png" alt="Terminal kitty de whitehatSO" width="70%" />
+  <img src="assets/stats.png" alt="whs-status en whitehatSO" width="70%" />
+  <img src="assets/options-system.png" alt="Menú de opciones del instalador" width="70%" />
+  <img src="assets/search_apps.png" alt="Rofi lanzador de apps" width="70%" />
+  <img src="assets/set_target.png" alt="Módulo ATK con settarget" width="70%" />
+  <img src="assets/files.png" alt="Gestor de ficheros" width="70%" />
 </p>
 
 ---
