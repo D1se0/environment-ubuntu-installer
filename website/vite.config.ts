@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react'
 // Ajusta BASE_PATH en .env o deja el default del repo.
 export default defineConfig({
   plugins: [react()],
-  base: process.env.BASE_PATH || '/enviroment-ubuntu-installer/',
+  base: process.env.BASE_PATH || '/environment-ubuntu-installer/',
   build: {
     outDir: 'dist'
   }

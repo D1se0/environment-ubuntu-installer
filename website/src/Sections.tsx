@@ -154,7 +154,7 @@ function Hero() {
           <a href="#atajos" className="px-6 py-3 border border-edge rounded-md hover:border-whs-red hover:text-whs-red transition-colors">
             Ver atajos de teclado
           </a>
-          <a href="https://github.com/D1se0/enviroment-ubuntu-installer" target="_blank" rel="noreferrer" className="px-6 py-3 border border-edge rounded-md hover:border-whs-red hover:text-whs-red transition-colors">
+          <a href="https://github.com/D1se0/environment-ubuntu-installer" target="_blank" rel="noreferrer" className="px-6 py-3 border border-edge rounded-md hover:border-whs-red hover:text-whs-red transition-colors">
             GitHub ↗
           </a>
         </div>
@@ -355,7 +355,7 @@ function Nav() {
           ))}
         </div>
         <a
-          href="https://github.com/D1se0/enviroment-ubuntu-installer/releases/latest"
+          href="https://github.com/D1se0/environment-ubuntu-installer/releases/latest"
           target="_blank"
           rel="noreferrer"
           className="text-xs px-3 py-1.5 border border-whs-red/60 text-whs-red rounded hover:bg-whs-red hover:text-white transition-colors"

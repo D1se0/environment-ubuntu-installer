@@ -44,7 +44,7 @@ whitehatSO no es una distribución nueva: es un **conjunto de configuraciones, s
 El script lleva **incrustados** todos los configs, scripts y wallpapers (no descarga nada del repo en tiempo de ejecución):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/D1se0/enviroment-ubuntu-installer/main/install-whitehatso.sh -o install-whitehatso.sh
+curl -fsSL https://raw.githubusercontent.com/D1se0/environment-ubuntu-installer/main/install-whitehatso.sh -o install-whitehatso.sh
 chmod +x install-whitehatso.sh
 sudo bash install-whitehatso.sh
 ```
@@ -71,8 +71,8 @@ WHS_ASSUME_YES=1 WHS_USER=tu_usuario sudo -E bash install-whitehatso.sh
 ### Opción C — clonar y construir
 
 ```bash
-git clone https://github.com/D1se0/enviroment-ubuntu-installer.git
-cd enviroment-ubuntu-installer
+git clone https://github.com/D1se0/environment-ubuntu-installer.git
+cd environment-ubuntu-installer
 bash build-installer.sh        # regenera install-whitehatso.sh desde payload/
 sudo bash install-whitehatso.sh
 ```
@@ -82,7 +82,7 @@ sudo bash install-whitehatso.sh
 ## Estructura del repositorio
 
 ```
-enviroment-ubuntu-installer/
+environment-ubuntu-installer/
 ├── install-whitehatso.sh        # ← el instalador autocontenido (generado)
 ├── build-installer.sh           # regenera el instalador desde payload/ + template/
 ├── template/
@@ -207,7 +207,7 @@ Edita `~/.config/sxhkd/sxhkdrc` y ejecuta `super + shift + r` (o `pkill -USR1 -x
 La web vive en `website/` (React + Vite + Tailwind) y se publica automáticamente con **GitHub Actions** en cada push a `main` que toque `website/`. Configuración:
 
 1. Repo → **Settings → Pages** → Source: **GitHub Actions**
-2. La base de Vite se ajusta con la variable `BASE_PATH` (por defecto `/enviroment-ubuntu-installer/`)
+2. La base de Vite se ajusta con la variable `BASE_PATH` (por defecto `/environment-ubuntu-installer/`)
 3. Para desarrollo local: `cd website && npm install && npm run dev`
 
 ## Releases
