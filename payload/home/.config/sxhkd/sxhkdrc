@@ -51,3 +51,6 @@ super + shift + l
 
 print
 	flameshot gui
+
+super + w
+	/usr/local/bin/whitehatso-close

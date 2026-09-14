@@ -381,8 +381,10 @@ function PromptAnatomy() {
               </div>
               <p className="text-sm text-whs-grey leading-relaxed">
                 Cerrar ventanas pide siempre <b className="text-white">Si / No</b> con rofi flotante y centrado. Funciona en
-                kitty (mapeo interno), en sxhkd (system-wide) y, como última red, en bash: si alguna terminal deja escapar la
-                tecla como secuencia <code className="text-whs-red">CSI-u</code>, los binds de bash la interpretan y lanzan el mismo diálogo.
+                kitty (mapeo interno de <code className="text-whs-red">ctrl+w</code> y <code className="text-whs-red">super+w</code>), en sxhkd (system-wide) y, como última red, en bash:
+                si alguna terminal deja escapar la tecla como secuencia <code className="text-whs-red">CSI-u</code>, los binds de bash la
+                interpretan y lanzan el mismo diálogo. ¿Por qué super+w también? En VMware con teclado español, la pulsación física
+                de Ctrl+W puede llegar como Super+W — todas las capas aceptan ambas.
               </p>
             </div>
           </div>
@@ -496,7 +498,7 @@ sudo bash install-whitehatso.sh`}
 const KEYS = [
   { k: ['super', 'Return'], d: 'Abrir kitty' },
   { k: ['super / ctrl', 'space'], d: 'Rofi launcher (apps)' },
-  { k: ['ctrl', 'w'], d: 'Cerrar ventana con confirmación Si/No' },
+  { k: ['ctrl / super', 'w'], d: 'Cerrar ventana con confirmación Si/No' },
   { k: ['super', 'shift', 'q'], d: 'Cerrar ventana sin confirmar' },
   { k: ['super', '1…5'], d: 'Ir al escritorio 1–5' },
   { k: ['super', 'shift', '1…5'], d: 'Mandar ventana al escritorio' },

@@ -152,14 +152,18 @@ __whs_prompt() {
 }
 PROMPT_COMMAND=__whs_prompt
 
-# Terminales con protocolo kitty: si el emulador deja escapar Ctrl+W como
-# secuencia CSI-u en vez de ^W, ejecutar el dialogo Si/No. Se cubren todas las
-# codificaciones posibles (119='w', 87='W', 23=C0 de ^W, 9;9u legacy).
+# Terminales con protocolo kitty: si el emulador deja escapar W+modificador como
+# secuencia CSI-u en vez de ^W, ejecutar el dialogo Si/No. Se cubren las
+# codificaciones de ctrl+w (5u/7u/23), super+w (9u/13u; algunos teclados/VMware
+# envian super en lugar de ctrl) y el legacy 9;9u.
 bind -x '"\e[119;5u": /usr/local/bin/whitehatso-close'  2>/dev/null
 bind -x '"\e[87;5u":  /usr/local/bin/whitehatso-close'  2>/dev/null
 bind -x '"\e[23;5u":  /usr/local/bin/whitehatso-close'  2>/dev/null
 bind -x '"\e[9;9u":   /usr/local/bin/whitehatso-close'  2>/dev/null
 bind -x '"\e[119;7u": /usr/local/bin/whitehatso-close'  2>/dev/null
+bind -x '"\e[119;9u": /usr/local/bin/whitehatso-close'  2>/dev/null
+bind -x '"\e[87;9u":  /usr/local/bin/whitehatso-close'  2>/dev/null
+bind -x '"\e[119;13u": /usr/local/bin/whitehatso-close' 2>/dev/null
 
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -lh --icons --group-directories-first'
